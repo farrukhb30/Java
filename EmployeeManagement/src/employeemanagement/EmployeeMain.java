@@ -13,7 +13,15 @@ public class EmployeeMain {
         EmployeeManagement.loadDB();
         
         do{
-        
+            
+            EmployeeManagement.startProg();
+            loopIterator = false;
+            
+            
+//            employees.forEach((e) -> {
+//                System.out.println(e);
+//            });
+            
         }while(loopIterator);
        
 
