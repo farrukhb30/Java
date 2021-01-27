@@ -36,9 +36,9 @@ public class MainPoly {
         employees.add(t2);
         employees.add(t3);
 
-        for (Employee employee : employees) {
+        employees.forEach(employee -> {
             System.out.println(employee);
-        }
+        });
         System.out.println("");
     }
 
