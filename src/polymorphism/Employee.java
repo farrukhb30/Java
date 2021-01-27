@@ -14,6 +14,7 @@ public class Employee {
     private double bonus;
     
     public Employee() {
+        this.employeeNr = employeeNumberGenerator++;
         
     }
     

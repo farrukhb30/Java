@@ -17,9 +17,11 @@ public class MainPoly {
     static GraphicDesigner g2 = new GraphicDesigner("Gimp", "Urban Petri", "male", 35000, 1500);
     static TestSpecialist t1 = new TestSpecialist(true, "Maria Pirat", "female", 55000, 3000);
     static TestSpecialist t2 = new TestSpecialist(false, "Pajeet Singh", "male", 65000, 3500);
+    static TestSpecialist t3 = new TestSpecialist(false, "Lara Karlsson", "female", 165000, 53500);
 
     public static void main(String[] args) {
 
+        loadDB();
         while (true) {
             Methods.runProgram();
         }
@@ -32,6 +34,7 @@ public class MainPoly {
         employees.add(g2);
         employees.add(t1);
         employees.add(t2);
+        employees.add(t3);
 
         for (Employee employee : employees) {
             System.out.println(employee);
