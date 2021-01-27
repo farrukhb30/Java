@@ -14,14 +14,14 @@ public class EmployeeMain {
         
         do{
             
-            EmployeeManagement.startProg();
+            UI.startProg();
             loopIterator = false;
             
             
 //            employees.forEach((e) -> {
 //                System.out.println(e);
 //            });
-            
+//            
         }while(loopIterator);
        
 
