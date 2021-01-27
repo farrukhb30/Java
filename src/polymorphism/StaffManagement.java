@@ -6,6 +6,7 @@ package polymorphism;
 
 import static polymorphism.MainPoly.employees;
 
+
 public class StaffManagement {
 
     public static void loadDB() {
@@ -16,6 +17,7 @@ public class StaffManagement {
         GraphicDesigner g2 = new GraphicDesigner("Gimp", "Urban Petri", "male", 35000, 1500);
         TestSpecialist t1 = new TestSpecialist(true, "Maria Pirat", "female", 55000, 3000);
         TestSpecialist t2 = new TestSpecialist(false, "Pajeet Singh", "male", 65000, 3500);
+        TestSpecialist t3 = new TestSpecialist(false, "Lara Karlsson", "female", 165000, 53500);
 
         employees.add(p1);
         employees.add(p2);
@@ -23,10 +25,9 @@ public class StaffManagement {
         employees.add(g2);
         employees.add(t1);
         employees.add(t2);
+        employees.add(t3);
 
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
+        Methods.printAllEmployees();
         System.out.println("");
     }
 }
