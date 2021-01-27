@@ -33,14 +33,6 @@ public class UI {
         }
     }
 
-    public static void statistics() {
-        System.out.println("1. Average salary");
-        System.out.println("2. Gender distribution");
-        System.out.println("3. Bonus payments");
-        System.out.println("4. Highest salary in company");
-        System.out.println("5. Lowest salary in company");
-    }
-
     public static void employeeManagament() {
         System.out.println("1. Add employee");
         System.out.println("2. Update employee");
@@ -78,5 +70,13 @@ public class UI {
                 System.out.println("Invalid input. Please try again.");
         }
     }
-    
+        public static void statistics() {
+        System.out.println("1. Average salary");
+        System.out.println("2. Gender distribution");
+        System.out.println("3. Bonus payments");
+        System.out.println("4. Highest salary in company");
+        System.out.println("5. Lowest salary in company");
+        
+        switch(readInt()) 
+    }
 }
