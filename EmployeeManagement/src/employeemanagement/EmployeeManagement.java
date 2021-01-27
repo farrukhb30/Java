@@ -2,10 +2,12 @@
 package employeemanagement;
 
 import static employeemanagement.EmployeeMain.employees;
+import java.util.Scanner;
 
 public class EmployeeManagement {
 
-
+    static Scanner sc = new Scanner(System.in);
+    
     public static void loadDB (){
     
         Programmer p = new Programmer("Java", "Farrukh", GenderType.MALE, 1.5, 50000);

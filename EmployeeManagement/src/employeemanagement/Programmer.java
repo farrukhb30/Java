@@ -23,7 +23,7 @@ public class Programmer extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ", CodeLanguage:" + codingLanguage;
+        return super.toString() + "\tCodeLanguage:" + codingLanguage;
     }
 
     

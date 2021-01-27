@@ -23,7 +23,7 @@ public class GraphicDesigner extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + ", ToolOfExpertise:" + toolOfExpertise;
+        return super.toString() + "\tToolOfExpertise:" + toolOfExpertise;
     }
     
     

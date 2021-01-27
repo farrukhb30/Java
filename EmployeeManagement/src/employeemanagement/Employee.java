@@ -54,7 +54,7 @@ class Employee {
 
     @Override
     public String toString() {
-        return "Id:" + employeeId + ", Name:" + employeeName + ", Gender:" + employeeGender + ", YearsOfExperience:" + employeeYearsOfExperience + ", Salary:" + employeeSalary ;
+        return "Id:" + employeeId + "\tName:" + employeeName + "\tGender:" + employeeGender + "\tYearsOfExperience:" + employeeYearsOfExperience + "\tSalary:" + employeeSalary ;
     }
 
     

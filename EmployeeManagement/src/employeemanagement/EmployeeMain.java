@@ -12,16 +12,18 @@ public class EmployeeMain {
         
         EmployeeManagement.loadDB();
         
+        GenderType.byOrdinal(2);
+        
         do{
             
-            UI.startProg();
+            UI.startProgMenu();
             loopIterator = false;
             
             
-//            employees.forEach((e) -> {
-//                System.out.println(e);
-//            });
-//            
+            employees.forEach((e) -> {
+                System.out.println(e);
+            });
+            
         }while(loopIterator);
        
 

@@ -23,7 +23,7 @@ public class TestSpecialist extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ", CertifiedISTQB:" + certifiedISTQB;
+        return super.toString() + "\tCertifiedISTQB:" + certifiedISTQB;
     }
     
     
