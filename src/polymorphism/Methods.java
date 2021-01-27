@@ -179,6 +179,7 @@ public class Methods {
             if (employee.getEmployeeNr() == empNr) {
                 e = employee;
                 System.out.println(employee);
+                checkEmployeeType();
                 updateEmployee(e);
             } else if (employee.getEmployeeNr() != empNr) {
                 //System.out.println("Not found.");
@@ -221,6 +222,13 @@ public class Methods {
                 printAllEmployees();
             default:
                 System.out.println("Invalid input. Please try again.");
+        }
+    }
+
+    private static void checkEmployeeType(Employee e) {
+        if(e instanceof Programmer) {
+            System.out.println("Would You like to update code language?");
+            sc.
         }
     }
 }
