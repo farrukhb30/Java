@@ -1,7 +1,4 @@
-/**
- *
- * @author toros
- */
+
 package polymorphism;
 
 
