@@ -25,10 +25,8 @@ public class TestSpecialist extends Employee{
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("TestSpecialists{ISTQBcertified=").append(ISTQBcertified);
-        sb.append('}');
-        return super.toString() + sb.toString();
+        
+        return super.toString() + ", ISTQB Certified:" + ISTQBcertified ;
     }
 
     

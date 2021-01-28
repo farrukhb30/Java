@@ -27,7 +27,7 @@ public class GraphicDesigner extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + "techStack=" + techStack + '}';
+        return super.toString() + ", TechStack:" + techStack ;
     }
     
     

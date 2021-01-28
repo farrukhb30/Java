@@ -322,4 +322,54 @@ public class Methods {
         System.out.println("Number of Male employees : " + maleDistribution);
         System.out.println("Number of Female employees : " + femaleDistribution);
     }
+    
+    public static void findHighestPaidEmployee() {
+
+        int highestSalary = 0;
+
+        for (int i = 0; i < employees.size(); i++) {
+
+            if (employees.get(i).getSalary()> employees.get(highestSalary).getSalary()) {
+
+                highestSalary = i;
+            }
+
+        }
+
+        double highest = employees.get(highestSalary).getSalary();
+
+        for (int i = 0; i < employees.size(); i++) {
+
+            if (employees.get(i).getSalary() == highest) {
+                System.out.println(employees.get(i));
+            }
+
+        }
+
+    }
+    
+    public static void findLowestPaidEmployee() {
+
+        int LowestSalary = 0;
+
+        for (int i = 0; i < employees.size(); i++) {
+
+            if (employees.get(i).getSalary()< employees.get(LowestSalary).getSalary()) {
+
+                LowestSalary = i;
+            }
+
+        }
+
+        double lowest = employees.get(LowestSalary).getSalary();
+
+        for (int i = 0; i < employees.size(); i++) {
+
+            if (employees.get(i).getSalary() == lowest) {
+                System.out.println(employees.get(i));
+            }
+
+        }
+
+    }
 }
