@@ -310,17 +310,75 @@ public class Methods {
 
         double maleDistribution = 0;
         double femaleDistribution = 0;
+        double maleProgrammers = 0;
+        double femaleProgrammers = 0;
+        double maleGraphicDesigner = 0;
+        double femaleGraphicDesigner = 0;
+        double maleTestSpecialists = 0;
+        double femaleTestSpecialists = 0;
+        double programmers = 0;
+        double graphicDesigner = 0;
+        double testSpecialists = 0;
+        
 
         for (int i = 0; i < employees.size(); i++) {
+            
             if (employees.get(i).getGender().equalsIgnoreCase("male")) {
+                
                 maleDistribution++;
-            } else {
+                
+                if(employees.get(i) instanceof Programmer){
+                    
+                    programmers++;
+                    maleProgrammers++;
+                }
+                if(employees.get(i) instanceof GraphicDesigner){
+                
+                    graphicDesigner++;
+                    maleGraphicDesigner++;
+                }
+                if(employees.get(i) instanceof TestSpecialist){
+                
+                    testSpecialists++;
+                    maleTestSpecialists++;
+                }
+                
+            } else if (employees.get(i).getGender().equalsIgnoreCase("female")){
+                
                 femaleDistribution++;
+                
+                if(employees.get(i) instanceof Programmer){
+                    
+                    programmers++;
+                    femaleProgrammers++;
+                }
+                if(employees.get(i) instanceof GraphicDesigner){
+                
+                    graphicDesigner++;
+                    femaleGraphicDesigner++;
+                }
+                if(employees.get(i) instanceof TestSpecialist){
+                
+                    testSpecialists++;
+                    femaleTestSpecialists++;
+                }
+         
             }
 
         }
         System.out.printf("Male employees percentage: %.2f\n", ( ( maleDistribution * 100 ) / employees.size() ) );
         System.out.printf("Female employees percentage : %.2f\n", ( ( femaleDistribution * 100 ) / employees.size() ) );
+
+        System.out.println("Gender distribution among employees respective their professional role");
+        
+        System.out.printf("Male programmers percentage: %.2f\n", ( ( maleProgrammers * 100 ) / programmers ) );
+        System.out.printf("Female programmers percentage : %.2f\n", ( ( femaleProgrammers * 100 ) / programmers ) );
+        
+        System.out.printf("Male graphic designres percentage: %.2f\n", ( ( maleGraphicDesigner * 100 ) / graphicDesigner ) );
+        System.out.printf("Female graphic designers percentage : %.2f\n", ( ( femaleGraphicDesigner * 100 ) / graphicDesigner ) );
+        
+        System.out.printf("Male programmers percentage: %.2f\n", ( ( maleTestSpecialists * 100 ) / testSpecialists ) );
+        System.out.printf("Female programmers percentage : %.2f\n", ( ( femaleTestSpecialists * 100 ) / testSpecialists ) );
     }
     
     public static void findHighestPaidEmployee() {
