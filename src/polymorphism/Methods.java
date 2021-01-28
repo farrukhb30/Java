@@ -297,4 +297,29 @@ public class Methods {
         System.out.println("Input bonus:");
         p.setBonus(readDouble());
     }
+
+    public static void calculateAverageSalaray() {
+        double averageSalaray = 0;
+        for (int i = 0; i < employees.size(); i++) {
+            averageSalaray = employees.get(i).getSalary() + averageSalaray;
+        }
+        System.out.println("The average salaray for all the employees: " + averageSalaray / employees.size());
+    }
+    
+    public static void genderDistribution() {
+
+        int maleDistribution = 0;
+        int femaleDistribution = 0;
+
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getGender().equalsIgnoreCase("male")) {
+                maleDistribution++;
+            } else {
+                femaleDistribution++;
+            }
+
+        }
+        System.out.println("Number of Male employees : " + maleDistribution);
+        System.out.println("Number of Female employees : " + femaleDistribution);
+    }
 }

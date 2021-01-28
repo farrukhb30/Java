@@ -1,8 +1,8 @@
 
 package polymorphism;
 
-import polymorphism.Methods.*;
-import static polymorphism.StaffManagement.*;
+import static polymorphism.Methods.*;
+import static polymorphism.EmployeeManagement.*;
 import static polymorphism.Utilities.*;
 
 
@@ -44,19 +44,19 @@ public class UI {
 
         switch (readInt()) {
             case 1:
-                Methods.addEmployee();
+                addEmployee();
                 break;
             case 2:
-                Methods.updateEmployeeByID();
+                updateEmployeeByID();
                 break;
             case 3:
-                Methods.removeEmployeeByID();
+                removeEmployeeByID();
                 break;
             case 4:
-                Methods.removeEmployeeByName();
+                removeEmployeeByName();
                 break;
             case 5:
-                Methods.printAllEmployees();
+                printAllEmployees();
                 break;
             case 6:
                 //                printByID();
@@ -77,6 +77,20 @@ public class UI {
         System.out.println("4. Highest salary in company");
         System.out.println("5. Lowest salary in company");
         
-        switch(readInt()) 
+        switch(readInt()){
+        
+            case 1 -> calculateAverageSalaray();
+            case 2 -> genderDistribution();
+            case 3 -> System.out.println("3. Bonus payments");
+            case 4 -> System.out.println("4. Highest salary in company");
+            case 5 -> System.out.println("5. Lowest salary in company");
+            default -> {
+            }
+                
+        }
+        
     }
+        
+
+
 }

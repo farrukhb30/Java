@@ -7,7 +7,7 @@ package polymorphism;
 import static polymorphism.MainPoly.employees;
 
 
-public class StaffManagement {
+public class EmployeeManagement {
 
     public static void loadDB() {
 

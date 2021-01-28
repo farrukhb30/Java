@@ -5,7 +5,7 @@
 package polymorphism;
 
 import java.util.ArrayList;
-import static polymorphism.StaffManagement.*;
+import static polymorphism.EmployeeManagement.*;
 
 public class MainPoly {
 
