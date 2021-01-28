@@ -308,8 +308,8 @@ public class Methods {
     
     public static void genderDistribution() {
 
-        int maleDistribution = 0;
-        int femaleDistribution = 0;
+        double maleDistribution = 0;
+        double femaleDistribution = 0;
 
         for (int i = 0; i < employees.size(); i++) {
             if (employees.get(i).getGender().equalsIgnoreCase("male")) {
@@ -319,8 +319,8 @@ public class Methods {
             }
 
         }
-        System.out.println("Number of Male employees : " + maleDistribution);
-        System.out.println("Number of Female employees : " + femaleDistribution);
+        System.out.printf("Male employees percentage: %.2f\n", ( ( maleDistribution * 100 ) / employees.size() ) );
+        System.out.printf("Female employees percentage : %.2f\n", ( ( femaleDistribution * 100 ) / employees.size() ) );
     }
     
     public static void findHighestPaidEmployee() {
