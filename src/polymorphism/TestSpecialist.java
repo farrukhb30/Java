@@ -1,6 +1,6 @@
 
 package polymorphism;
-
+import static polymorphism.MainPoly.*;
 
 public class TestSpecialist extends Employee{
     private boolean ISTQBcertified;
@@ -27,12 +27,15 @@ public class TestSpecialist extends Employee{
     public void bonus() {
 //        this.setSalaryWithBonus(this.getSalary()*(1.02));
         this.setSalaryWithBonus(this.getSalary()+500);
+        
+        this.setBonus(500.00);
+        
     }
     
     @Override
     public String toString() {
         
-        return super.toString() + " ISTQB Certified:" + ISTQBcertified ;
+        return super.toString() + " ISTQB Certified:" + methodName(String.valueOf(ISTQBcertified));
     }
 
     

@@ -4,6 +4,8 @@
  */
 package polymorphism;
 
+import static polymorphism.MainPoly.methodName;
+
 
 public class GraphicDesigner extends Employee{
     private String techStack;
@@ -27,12 +29,16 @@ public class GraphicDesigner extends Employee{
 
     @Override
     public void bonus() {
+        
         this.setSalaryWithBonus(this.getSalary()*(1.025));
+        
+        this.setBonus(this.getSalary()*(0.025));
+        
     }
     
     @Override
     public String toString() {
-        return super.toString() + " TechStack:" + techStack ;
+        return super.toString() + " TechStack:" + methodName(techStack) ;
     }
     
     

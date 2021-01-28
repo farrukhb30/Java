@@ -60,7 +60,7 @@ public class Methods {
 
         System.out.println("Input Tech Stack:");
         g.setTechStack(sc.nextLine());
-        
+
         employees.add(g);
     }
 
@@ -148,6 +148,7 @@ public class Methods {
 
     public static void printAllEmployees() {
 
+//        System.out.println("ID             Name           Gender          Salary         ");
         for (Employee employee : employees) {
 
             System.out.println(employee);
@@ -384,5 +385,59 @@ public class Methods {
             }
         }
         System.out.println(employees.get(lowestSalary));
+    }
+
+    public static void totalBonusPayments() {
+
+        double totalBonus = 0;
+
+        for (Employee employee : employees) {
+
+            totalBonus = employee.getBonus() + totalBonus;
+
+        }
+        System.out.println("Total bonus for all the employees: " + totalBonus);
+    }
+
+    public static void totalProgrammersBonusPayments() {
+
+        double totalProgrammerBonus = 0;
+
+        for (Employee employee : employees) {
+
+            if (employee instanceof Programmer) {
+                totalProgrammerBonus = employee.getBonus() + totalProgrammerBonus;
+            }
+
+        }
+        System.out.println("Total bonus for all the Programmers: " + totalProgrammerBonus);
+    }
+
+    public static void totalGraphicDesignerBonusPayments() {
+
+        double totalGraphicDesignerBonus = 0;
+
+        for (Employee employee : employees) {
+
+            if (employee instanceof GraphicDesigner) {
+                totalGraphicDesignerBonus = employee.getBonus() + totalGraphicDesignerBonus;
+            }
+
+        }
+        System.out.println("Total bonus for all the Graphic Designers: " + totalGraphicDesignerBonus);
+    }
+
+    public static void totalTestSpecialistBonusPayments() {
+
+        double totalTestSpecialistBonus = 0;
+
+        for (Employee employee : employees) {
+
+            if (employee instanceof TestSpecialist) {
+                totalTestSpecialistBonus = employee.getBonus() + totalTestSpecialistBonus;
+            }
+
+        }
+        System.out.println("Total bonus for all the Test Specialists: " + totalTestSpecialistBonus);
     }
 }

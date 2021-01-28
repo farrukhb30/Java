@@ -4,6 +4,8 @@
  */
 package polymorphism;
 
+import static polymorphism.MainPoly.methodName;
+
 
 public class Programmer extends Employee{
     private String codeLang;
@@ -27,14 +29,18 @@ public class Programmer extends Employee{
 
     @Override
     public void bonus() {
-         this.setSalaryWithBonus(this.getSalary()*(1.01));
+        
+        this.setSalaryWithBonus(this.getSalary()*(1.01));
+        
+        this.setBonus(this.getSalary()*(0.01));
+        
     }
 
     
     
     @Override
     public String toString() {
-        return super.toString() + " CodeLang=" + codeLang ;
+        return super.toString() + " CodeLang=" + methodName(codeLang) ;
     }
     
     

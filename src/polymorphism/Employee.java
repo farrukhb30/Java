@@ -3,7 +3,7 @@
  * @author toros
  */
 package polymorphism;
-
+import static polymorphism.MainPoly.*;
 import java.text.DecimalFormat;
 
 
@@ -15,6 +15,7 @@ public class Employee {
     private String name;
     private String gender;
     private double salary;
+    private double bonus;
     private double salaryWithBonus;
     
     public Employee() {
@@ -71,16 +72,31 @@ public class Employee {
         this.salary = salary;
     }
     
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
+    
+    
     public void bonus(){
     }
 
+//    @Override
+//    public String toString() {
+//       
+//       return "ID:" + employeeNr + " Name:" + name + " Gender:" + gender + " Salary:" + df.format(salary) + " Salary With Bonus:" + df.format(salaryWithBonus);
+//
+//    }
+    
     @Override
     public String toString() {
-       
-       return "ID:" + employeeNr + " Name:" + name + " Gender:" + gender + " Salary:" + df.format(salary) + " Salary With Bonus:" + df.format(salaryWithBonus);
+
+        return "ID:" + methodName(String.valueOf(employeeNr)) + " Name:" + methodName(name) + " Gender:" + methodName(gender) + " Salary:" + methodName(df.format(salary)) + " Salary With Bonus:" + methodName(df.format(salaryWithBonus));
 
     }
-    
     
     
     
