@@ -12,8 +12,8 @@ public class Programmer extends Employee{
         
     }
 
-    public Programmer(String codeLang, String name, String gender, double salary, double bonus) {
-        super(name, gender, salary, bonus);
+    public Programmer(String codeLang, String name, String gender, double salary) {
+        super(name, gender, salary);
         this.codeLang = codeLang;
     }
 
@@ -26,8 +26,15 @@ public class Programmer extends Employee{
     }
 
     @Override
+    public void bonus() {
+         this.setSalaryWithBonus(this.getSalary()*(1.01));
+    }
+
+    
+    
+    @Override
     public String toString() {
-        return super.toString() + ", CodeLang=" + codeLang ;
+        return super.toString() + " CodeLang=" + codeLang ;
     }
     
     

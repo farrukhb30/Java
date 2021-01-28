@@ -10,8 +10,8 @@ public class TestSpecialist extends Employee{
     }
 
 
-    public TestSpecialist(boolean ISTQBcertified, String name, String gender, double salary, double bonus) {
-        super(name, gender, salary, bonus);
+    public TestSpecialist(boolean ISTQBcertified, String name, String gender, double salary) {
+        super(name, gender, salary);
         this.ISTQBcertified = ISTQBcertified;
     }
 
@@ -24,9 +24,15 @@ public class TestSpecialist extends Employee{
     }
 
     @Override
+    public void bonus() {
+//        this.setSalaryWithBonus(this.getSalary()*(1.02));
+        this.setSalaryWithBonus(this.getSalary()+500);
+    }
+    
+    @Override
     public String toString() {
         
-        return super.toString() + ", ISTQB Certified:" + ISTQBcertified ;
+        return super.toString() + " ISTQB Certified:" + ISTQBcertified ;
     }
 
     

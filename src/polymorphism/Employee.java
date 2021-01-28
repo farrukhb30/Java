@@ -4,35 +4,39 @@
  */
 package polymorphism;
 
+import java.text.DecimalFormat;
+
 
 public class Employee {
+    DecimalFormat df = new DecimalFormat("###.##");
+
     public static int employeeNumberGenerator = 1; 
     private int employeeNr;
     private String name;
     private String gender;
     private double salary;
-    private double bonus;
+    private double salaryWithBonus;
     
     public Employee() {
         this.employeeNr = employeeNumberGenerator++;
         
     }
     
-    public Employee(String name, String gender, double salary, double bonus) {
+    public Employee(String name, String gender, double salary) {
         
         this.employeeNr = employeeNumberGenerator++;
         this.name = name;
         this.gender = gender;
         this.salary = salary;
-        this.bonus = bonus;
+        this.salaryWithBonus = salary;
     }
 
-    public double getBonus() {
-        return bonus;
+    public double getSalaryWithBonus() {
+        return salaryWithBonus;
     }
 
-    public void setBonus(double bonus) {
-        this.bonus = bonus;
+    public void setSalaryWithBonus(double salaryWithBonus) {
+        this.salaryWithBonus = salaryWithBonus;
     }
 
     public int getEmployeeNr() {
@@ -66,11 +70,18 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+    
+    public void bonus(){
+    }
 
     @Override
     public String toString() {
-        return "ID:" + employeeNr + ", Name:" + name + ", Gender:" + gender + ", Salary:" + salary + ", Bonus:" + bonus ;
+       
+       return "ID:" + employeeNr + " Name:" + name + " Gender:" + gender + " Salary:" + df.format(salary) + " Salary With Bonus:" + df.format(salaryWithBonus);
+
     }
+    
+    
     
     
 }

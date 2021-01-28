@@ -12,8 +12,8 @@ public class GraphicDesigner extends Employee{
         
     }
 
-    public GraphicDesigner(String techStack, String name, String gender, double salary, double bonus) {
-        super(name, gender, salary, bonus);
+    public GraphicDesigner(String techStack, String name, String gender, double salary) {
+        super(name, gender, salary);
         this.techStack = techStack;
     }
 
@@ -26,8 +26,13 @@ public class GraphicDesigner extends Employee{
     }
 
     @Override
+    public void bonus() {
+        this.setSalaryWithBonus(this.getSalary()*(1.025));
+    }
+    
+    @Override
     public String toString() {
-        return super.toString() + ", TechStack:" + techStack ;
+        return super.toString() + " TechStack:" + techStack ;
     }
     
     

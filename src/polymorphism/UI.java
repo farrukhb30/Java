@@ -64,7 +64,7 @@ public class UI {
         
         switch(readInt()){
         
-            case 1 -> calculateAverageSalaray();
+            case 1 -> calculateAverageSalary();
             case 2 -> genderDistribution();
             case 3 -> System.out.println("3. Bonus payments");
             case 4 -> findHighestPaidEmployee();

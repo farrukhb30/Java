@@ -12,7 +12,6 @@ public class Methods {
 
     static Scanner sc = new Scanner(System.in);
 
-
     //add diff emp
     public static void addEmployee() {
 
@@ -20,7 +19,7 @@ public class Methods {
         System.out.println("1. Programmer");
         System.out.println("2. Graphic Designer");
         System.out.println("3. Test Specialist");
-        System.out.println("0. Exit");
+        System.out.println("0. Go back to main menu");
 
         switch (sc.nextLine()) {
             case "1":
@@ -33,18 +32,20 @@ public class Methods {
                 addTestSpecialist();
                 break;
             case "0":
-                System.exit(0);
+                break;
             default:
                 System.out.println("Invalid input. Please try again.");
         }
+        printAllEmployees();
+        System.out.println("");
     }
 
     public static void addProgrammer() {
 
         Programmer p = new Programmer();
-        
+
         addEmployeeType(p);
-        
+
         System.out.println("Input programming language:");
         p.setCodeLang(sc.nextLine());
 
@@ -56,9 +57,10 @@ public class Methods {
         GraphicDesigner g = new GraphicDesigner();
 
         addEmployeeType(g);
-        
+
         System.out.println("Input Tech Stack:");
         g.setTechStack(sc.nextLine());
+        
         employees.add(g);
     }
 
@@ -66,22 +68,22 @@ public class Methods {
         TestSpecialist t = new TestSpecialist();
 
         addEmployeeType(t);
-            
+
         System.out.println("Is Test Specialist ISTQB certified? Write true or false");
         t.setISTQBcertified(readBoolean());
         employees.add(t);
     }
 
     public static void updateEmployeeByID() {
-        
+
         Employee e = new Employee();
-        
+
         printAllEmployees();
-        
+
         System.out.println("Please input employee number:");
-        
+
         int empNr = readInt();
-        
+
         for (Employee employee : employees) {
             if (employee.getEmployeeNr() == empNr) {
                 e = employee;
@@ -96,14 +98,14 @@ public class Methods {
     }
 
     public static void removeEmployeeByID() {
-        
+
         Employee e = new Employee();
-        
+
         printAllEmployees();
-        
+
         System.out.println("Please input employee number:");
         int empNr = readInt();
-        
+
         for (int i = 0; i < employees.size(); i++) {
             if (employees.get(i).getEmployeeNr() == empNr) {
                 e = employees.get(i);
@@ -117,14 +119,14 @@ public class Methods {
     }
 
     public static void removeEmployeeByName() {
-        
+
         Employee e = new Employee();
-        
+
         printAllEmployees();
-        
+
         System.out.println("Please input employee name:");
         String empName = sc.nextLine();
-        
+
         for (int i = (employees.size() - 1); i > 0; i--) {
             if (employees.get(i).getName().equalsIgnoreCase(empName)) {
                 e = employees.get(i);
@@ -145,47 +147,17 @@ public class Methods {
     }
 
     public static void printAllEmployees() {
-        
+
         for (Employee employee : employees) {
-            
+
             System.out.println(employee);
         }
     }
 
-    public static void updateEmployee(Employee e) {
-        
-        System.out.println("What would You like to update?");
-        System.out.println("1. Name:");
-        System.out.println("2. Gender:");
-        System.out.println("3. Salary:");
-        System.out.println("4. Bonus:");
-
-        switch (readInt()) {
-            case 1:
-                e.setName(sc.nextLine());
-                printAllEmployees();
-                break;
-            case 2:
-                e.setGender(sc.nextLine());
-                printAllEmployees();
-                break;
-            case 3:
-                e.setSalary(readDouble());
-                printAllEmployees();
-                break;
-            case 4:
-                e.setBonus(readDouble());
-                printAllEmployees();
-                break;
-            default:
-                System.out.println("Invalid input. Please try again.");
-        }
-    }
-
     public static void checkEmployeeType(Employee e) {
-        
+
         if (e instanceof Programmer) {
-            
+
             System.out.println("What would You like to update?");
             System.out.println("Input number to choose from menu:");
             System.out.println("1. Name");
@@ -206,7 +178,7 @@ public class Methods {
                     e.setSalary(readDouble());
                     break;
                 case 4:
-                    e.setBonus(readDouble());
+                    e.setSalaryWithBonus(readDouble());
                     break;
                 case 5:
                     ((Programmer) e).setCodeLang(sc.nextLine());
@@ -218,7 +190,7 @@ public class Methods {
                     System.out.println("Wrong input. Please try again.");
             }
         } else if (e instanceof GraphicDesigner) {
-            
+
             System.out.println("What would You like to update?");
             System.out.println("Input number to choose from menu:");
             System.out.println("1. Name");
@@ -239,7 +211,7 @@ public class Methods {
                     e.setSalary(readDouble());
                     break;
                 case 4:
-                    e.setBonus(readDouble());
+                    e.setSalaryWithBonus(readDouble());
                     break;
                 case 5:
                     ((GraphicDesigner) e).setTechStack(sc.nextLine());
@@ -251,7 +223,7 @@ public class Methods {
                     System.out.println("Wrong input. Please try again.");
             }
         } else if (e instanceof TestSpecialist) {
-            
+
             System.out.println("What would You like to update?");
             System.out.println("Input number to choose from menu:");
             System.out.println("1. Name");
@@ -272,7 +244,7 @@ public class Methods {
                     e.setSalary(readDouble());
                     break;
                 case 4:
-                    e.setBonus(readDouble());
+                    e.setSalaryWithBonus(readDouble());
                     break;
                 case 5:
                     ((TestSpecialist) e).setISTQBcertified(Utilities.readBoolean());
@@ -287,25 +259,28 @@ public class Methods {
     }
 
     public static void addEmployeeType(Employee p) {
-        
+
         System.out.println("Input name:");
         p.setName(sc.nextLine());
         System.out.println("Input gender:");
         p.setGender(sc.nextLine());
         System.out.println("Input salary:");
         p.setSalary(readDouble());
-        System.out.println("Input bonus:");
-        p.setBonus(readDouble());
+        p.bonus();
     }
 
-    public static void calculateAverageSalaray() {
+    public static void calculateAverageSalary() {
+
         double averageSalaray = 0;
+
         for (int i = 0; i < employees.size(); i++) {
+
             averageSalaray = employees.get(i).getSalary() + averageSalaray;
         }
+
         System.out.println("The average salaray for all the employees: " + averageSalaray / employees.size());
     }
-    
+
     public static void genderDistribution() {
 
         double maleDistribution = 0;
@@ -319,115 +294,95 @@ public class Methods {
         double programmers = 0;
         double graphicDesigner = 0;
         double testSpecialists = 0;
-        
 
         for (int i = 0; i < employees.size(); i++) {
-            
+
             if (employees.get(i).getGender().equalsIgnoreCase("male")) {
-                
+
                 maleDistribution++;
-                
-                if(employees.get(i) instanceof Programmer){
-                    
+
+                if (employees.get(i) instanceof Programmer) {
+
                     programmers++;
                     maleProgrammers++;
                 }
-                if(employees.get(i) instanceof GraphicDesigner){
-                
+                if (employees.get(i) instanceof GraphicDesigner) {
+
                     graphicDesigner++;
                     maleGraphicDesigner++;
                 }
-                if(employees.get(i) instanceof TestSpecialist){
-                
+                if (employees.get(i) instanceof TestSpecialist) {
+
                     testSpecialists++;
                     maleTestSpecialists++;
                 }
-                
-            } else if (employees.get(i).getGender().equalsIgnoreCase("female")){
-                
+
+            } else if (employees.get(i).getGender().equalsIgnoreCase("female")) {
+
                 femaleDistribution++;
-                
-                if(employees.get(i) instanceof Programmer){
-                    
+
+                if (employees.get(i) instanceof Programmer) {
+
                     programmers++;
                     femaleProgrammers++;
                 }
-                if(employees.get(i) instanceof GraphicDesigner){
-                
+                if (employees.get(i) instanceof GraphicDesigner) {
+
                     graphicDesigner++;
                     femaleGraphicDesigner++;
                 }
-                if(employees.get(i) instanceof TestSpecialist){
-                
+                if (employees.get(i) instanceof TestSpecialist) {
+
                     testSpecialists++;
                     femaleTestSpecialists++;
                 }
-         
+
             }
 
         }
-        System.out.printf("Male employees percentage: %.2f\n", ( ( maleDistribution * 100 ) / employees.size() ) );
-        System.out.printf("Female employees percentage : %.2f\n", ( ( femaleDistribution * 100 ) / employees.size() ) );
+        System.out.printf("Male employees percentage: %.2f\n", ((maleDistribution * 100) / employees.size()));
+        System.out.printf("Female employees percentage : %.2f\n", ((femaleDistribution * 100) / employees.size()));
 
         System.out.println("Gender distribution among employees respective their professional role");
-        
-        System.out.printf("Male programmers percentage: %.2f\n", ( ( maleProgrammers * 100 ) / programmers ) );
-        System.out.printf("Female programmers percentage : %.2f\n", ( ( femaleProgrammers * 100 ) / programmers ) );
-        
-        System.out.printf("Male graphic designres percentage: %.2f\n", ( ( maleGraphicDesigner * 100 ) / graphicDesigner ) );
-        System.out.printf("Female graphic designers percentage : %.2f\n", ( ( femaleGraphicDesigner * 100 ) / graphicDesigner ) );
-        
-        System.out.printf("Male programmers percentage: %.2f\n", ( ( maleTestSpecialists * 100 ) / testSpecialists ) );
-        System.out.printf("Female programmers percentage : %.2f\n", ( ( femaleTestSpecialists * 100 ) / testSpecialists ) );
+
+        System.out.printf("Male programmers percentage: %.2f\n", ((maleProgrammers * 100) / programmers));
+        System.out.printf("Female programmers percentage : %.2f\n", ((femaleProgrammers * 100) / programmers));
+
+        System.out.printf("Male graphic designres percentage: %.2f\n", ((maleGraphicDesigner * 100) / graphicDesigner));
+        System.out.printf("Female graphic designers percentage : %.2f\n", ((femaleGraphicDesigner * 100) / graphicDesigner));
+
+        System.out.printf("Male programmers percentage: %.2f\n", ((maleTestSpecialists * 100) / testSpecialists));
+        System.out.printf("Female programmers percentage : %.2f\n", ((femaleTestSpecialists * 100) / testSpecialists));
     }
-    
+
     public static void findHighestPaidEmployee() {
 
         int highestSalary = 0;
 
         for (int i = 0; i < employees.size(); i++) {
 
-            if (employees.get(i).getSalary()> employees.get(highestSalary).getSalary()) {
+            if (employees.get(i).getSalary() > employees.get(highestSalary).getSalary()) {
 
                 highestSalary = i;
             }
 
         }
 
-        double highest = employees.get(highestSalary).getSalary();
-
-        for (int i = 0; i < employees.size(); i++) {
-
-            if (employees.get(i).getSalary() == highest) {
-                System.out.println(employees.get(i));
-            }
-
-        }
+        System.out.println(employees.get(highestSalary));
 
     }
-    
+
     public static void findLowestPaidEmployee() {
 
-        int LowestSalary = 0;
+        int lowestSalary = 0;
 
         for (int i = 0; i < employees.size(); i++) {
 
-            if (employees.get(i).getSalary()< employees.get(LowestSalary).getSalary()) {
+            if (employees.get(i).getSalary() < employees.get(lowestSalary).getSalary()) {
 
-                LowestSalary = i;
+                lowestSalary = i;
             }
-
         }
-
-        double lowest = employees.get(LowestSalary).getSalary();
-
-        for (int i = 0; i < employees.size(); i++) {
-
-            if (employees.get(i).getSalary() == lowest) {
-                System.out.println(employees.get(i));
-            }
-
-        }
-
+        System.out.println(employees.get(lowestSalary));
     }
 }
