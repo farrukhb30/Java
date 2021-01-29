@@ -4,7 +4,7 @@
  */
 package polymorphism;
 
-import static polymorphism.MainPoly.methodName;
+import static polymorphism.Utilities.*;
 
 
 public class Programmer extends Employee{
@@ -40,7 +40,7 @@ public class Programmer extends Employee{
     
     @Override
     public String toString() {
-        return super.toString() + " CodeLang=" + methodName(codeLang) ;
+        return super.toString() + "CodeLang=" + Utilities.theStringTrimmer(codeLang) ;
     }
     
     

@@ -20,20 +20,5 @@ public class MainPoly {
         }
     }
 
-    public static String methodName(String s) {
-
-        if (s.length() < 15) {
-            int max = 15 - s.length();
-            for (int i = 0; i <= max; i++) {
-                
-                s = s + " ";
-
-            }
-        } else {
-            s = s.substring(0, 15);
-
-        }
-        return s;
-    }
 }
 

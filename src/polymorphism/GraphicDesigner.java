@@ -4,7 +4,7 @@
  */
 package polymorphism;
 
-import static polymorphism.MainPoly.methodName;
+import static polymorphism.Utilities.*;
 
 
 public class GraphicDesigner extends Employee{
@@ -38,7 +38,7 @@ public class GraphicDesigner extends Employee{
     
     @Override
     public String toString() {
-        return super.toString() + " TechStack:" + methodName(techStack) ;
+        return super.toString() + "TechStack:" + theStringTrimmer(techStack) ;
     }
     
     

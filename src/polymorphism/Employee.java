@@ -94,7 +94,7 @@ public class Employee {
     @Override
     public String toString() {
 
-        return "ID:" + methodName(String.valueOf(employeeNr)) + " Name:" + methodName(name) + " Gender:" + methodName(gender) + " Salary:" + methodName(df.format(salary)) + " Salary With Bonus:" + methodName(df.format(salaryWithBonus));
+        return Utilities.theStringTrimmer(String.valueOf(employeeNr)) + Utilities.theStringTrimmer(name) + Utilities.theStringTrimmer(gender) + Utilities.theStringTrimmer(df.format(salary)) + Utilities.theStringTrimmer(df.format(salaryWithBonus));
 
     }
     

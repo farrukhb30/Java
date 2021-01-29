@@ -35,7 +35,7 @@ public class TestSpecialist extends Employee{
     @Override
     public String toString() {
         
-        return super.toString() + " ISTQB Certified:" + methodName(String.valueOf(ISTQBcertified));
+        return super.toString() + "ISTQB Certified:" + Utilities.theStringTrimmer(String.valueOf(ISTQBcertified));
     }
 
     

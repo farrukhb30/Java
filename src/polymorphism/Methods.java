@@ -148,7 +148,7 @@ public class Methods {
 
     public static void printAllEmployees() {
 
-//        System.out.println("ID             Name           Gender          Salary         ");
+        System.out.println("ID              Name            Gender          Salary          Salary & Bonus  Qualifications");
         for (Employee employee : employees) {
 
             System.out.println(employee);
