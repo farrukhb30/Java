@@ -51,8 +51,8 @@ public class UI {
                 removeEmployeeByName();
             case 5 ->
                 printAllEmployees();
-            case 6 -> {
-            }
+            case 6 -> 
+                printEmployeeByID();
             case 0 -> {
             }
             default ->

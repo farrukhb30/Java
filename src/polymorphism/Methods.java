@@ -148,7 +148,7 @@ public class Methods {
 
     public static void printAllEmployees() {
 
-        System.out.println("ID              Name            Gender          Salary          Salary & Bonus  Qualifications");
+        tableHeader();
         for (Employee employee : employees) {
 
             System.out.println(employee);
@@ -366,11 +366,21 @@ public class Methods {
 
                 highestSalary = i;
             }
-
         }
 
-        System.out.println(employees.get(highestSalary));
+        double highest = employees.get(highestSalary).getSalary();
 
+        if (highestSalary != 0) {
+            tableHeader();
+        }
+
+        for (Employee employee : employees) {
+            if (employee.getSalary() == highest) {
+                System.out.println(employee);
+            }
+        }
+
+        //System.out.println(employees.get(highestSalary));
     }
 
     public static void findLowestPaidEmployee() {
@@ -384,7 +394,17 @@ public class Methods {
                 lowestSalary = i;
             }
         }
-        System.out.println(employees.get(lowestSalary));
+        double lowest = employees.get(lowestSalary).getSalary();
+
+        if (lowestSalary != 0) {
+            tableHeader();
+        }
+
+        for (Employee employee : employees) {
+            if (employee.getSalary() == lowest) {
+                System.out.println(employee);
+            }
+        }
     }
 
     public static void totalBonusPayments() {
@@ -439,5 +459,28 @@ public class Methods {
 
         }
         System.out.println("Total bonus for all the Test Specialists: " + totalTestSpecialistBonus);
+    }
+
+    public static void printEmployeeByID() {
+        Employee e = new Employee();
+
+        printAllEmployees();
+
+        System.out.println("Please input employee number:");
+        int empNr = readInt();
+
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getEmployeeNr() == empNr) {
+                e = employees.get(i);
+                System.out.println("ID              Name            Gender          Salary          Salary & Bonus  Qualifications");
+                System.out.println(e);
+                //employees.remove(e);
+            }
+//            else {
+//                System.out.println("Invalid input. Please try again.");
+//            }
+        }
+        System.out.println("");
+        //printAllEmployees();
     }
 }

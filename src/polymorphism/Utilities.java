@@ -1,4 +1,3 @@
-
 package polymorphism;
 
 public class Utilities {
@@ -32,5 +31,9 @@ public class Utilities {
         }
         return s;
     }
-    
+
+    public static void tableHeader() {
+        System.out.println("ID              Name            Gender          Salary          Salary & Bonus  Qualifications");
+    }
+
 }
