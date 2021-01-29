@@ -6,6 +6,7 @@ import static polymorphism.Utilities.*;
 
 public class UI {
 
+    //The first menu runs when the program starts.
     public static void runProgram() {
         System.out.println("\nWelcome to the Employee Management System!");
         System.out.println("Please input number to choose from the menu.");
@@ -31,6 +32,7 @@ public class UI {
         }
     }
 
+    //Shows the menu for employee management when you get into subcategory of main menu.
     public static void employeeManagament() {
         System.out.println("1. Add employee");
         System.out.println("2. Update employee");
@@ -42,7 +44,7 @@ public class UI {
 
         switch (readInt()) {
             case 1 ->
-                addEmployee();
+                addEmployeeByUser();
             case 2 ->
                 updateEmployeeByID();
             case 3 ->
@@ -61,6 +63,7 @@ public class UI {
         //                printByID();
     }
 
+    //Shows the menu for statistics when you get into subcategory of main menu.
     public static void statistics() {
         System.out.println("1. Average salary");
         System.out.println("2. Gender distribution");
@@ -90,6 +93,7 @@ public class UI {
 
     }
 
+    //Generates bonus Menu for calculation of Bonus based on different professional roles.
     public static void bonusMenu() {
 
         System.out.println("1. Total bonus for all employees ");
@@ -118,6 +122,35 @@ public class UI {
                 System.exit(0);
 
         }
+    }
+
+    //Adds the employee by asking differnet fields of employee from User.
+    public static void addEmployeeByUser() {
+        System.out.println("What kind of employee?");
+        System.out.println("1. Programmer");
+        System.out.println("2. Graphic Designer");
+        System.out.println("3. Test Specialist");
+        System.out.println("0. Go back to main menu");
+        switch (Methods.sc.nextLine()) {
+            case "1":
+                Programmer p = new Programmer();
+                p.add();
+                break;
+            case "2":
+                GraphicDesigner g = new GraphicDesigner();
+                g.add();
+                break;
+            case "3":
+                TestSpecialist t = new TestSpecialist();
+                t.add();
+                break;
+            case "0":
+                break;
+            default:
+                System.out.println("Invalid input. Please try again.");
+        }
+        Methods.printAllEmployees();
+        System.out.println("");
     }
 
 }

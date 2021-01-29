@@ -1,11 +1,7 @@
-/**
- *
- * @author toros
- */
+
 package polymorphism;
 
 import static polymorphism.MainPoly.employees;
-
 
 public class EmployeeManagement {
 

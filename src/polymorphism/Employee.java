@@ -3,28 +3,29 @@
  * @author toros
  */
 package polymorphism;
-import static polymorphism.MainPoly.*;
-import java.text.DecimalFormat;
 
+import static polymorphism.Utilities.*;
+import java.text.DecimalFormat;
+import static polymorphism.Methods.sc;
 
 public class Employee {
+
     DecimalFormat df = new DecimalFormat("###.##");
 
-    public static int employeeNumberGenerator = 1; 
+    public static int employeeNumberGenerator = 1;
     private int employeeNr;
     private String name;
     private String gender;
     private double salary;
     private double bonus;
     private double salaryWithBonus;
-    
+
     public Employee() {
         this.employeeNr = employeeNumberGenerator++;
-        
     }
-    
+
     public Employee(String name, String gender, double salary) {
-        
+
         this.employeeNr = employeeNumberGenerator++;
         this.name = name;
         this.gender = gender;
@@ -71,7 +72,7 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
-    
+
     public double getBonus() {
         return bonus;
     }
@@ -79,27 +80,29 @@ public class Employee {
     public void setBonus(double bonus) {
         this.bonus = bonus;
     }
+
+    public void bonus() {
+    }
     
-    
-    public void bonus(){
+    public void update(){
     }
 
-//    @Override
-//    public String toString() {
-//       
-//       return "ID:" + employeeNr + " Name:" + name + " Gender:" + gender + " Salary:" + df.format(salary) + " Salary With Bonus:" + df.format(salaryWithBonus);
-//
-//    }
-    
+    public void add() {
+
+        System.out.println("Input name:");
+        this.setName(sc.nextLine());
+        System.out.println("Input gender:");
+        this.setGender(sc.nextLine());
+        System.out.println("Input salary:");
+        this.setSalary(readDouble());
+        this.bonus();
+    }
+
     @Override
     public String toString() {
 
-        return Utilities.theStringTrimmer(String.valueOf(employeeNr)) + Utilities.theStringTrimmer(name) + Utilities.theStringTrimmer(gender) + Utilities.theStringTrimmer(df.format(salary)) + Utilities.theStringTrimmer(df.format(salaryWithBonus));
+        return theStringTrimmer(String.valueOf(employeeNr)) + theStringTrimmer(name) + theStringTrimmer(gender) + theStringTrimmer(df.format(salary)) + theStringTrimmer(df.format(salaryWithBonus));
 
     }
-    
-    
-    
+
 }
-
-
