@@ -14,16 +14,12 @@ public class ClothStore {
       
         printAllCloths();
         
-        printNumberOfCloths();
+        Cloth.printNumberOfCloths();
+        
+        Cloth.printTotalSales();
         
     }
 
-    private static void printNumberOfCloths() {
-        System.out.println("Number of Cloths created : " + Cloth.noOfCloths);
-        System.out.println("\nNumber of Pants created : " + Pants.noOfPants);
-        System.out.println("Number of Dresses created : " + Dress.noOfDresses);
-        System.out.println("Number of TShirts created : " + TShirt.noOfTShirts);
-    }
 
     private static void printAllCloths() {
         for (Cloth cloth: shop) {
