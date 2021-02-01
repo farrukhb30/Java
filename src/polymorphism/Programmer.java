@@ -11,6 +11,13 @@ import static polymorphism.Utilities.*;
 public class Programmer extends Employee {
 
     private String codeLang;
+    private static int noOfProgrammers;
+    private static int noOfMaleProgrammers;
+    private static int noOfFemaleProgrammers;
+
+    {
+        noOfProgrammers += 1;
+    }
 
     public Programmer() {
 
@@ -19,6 +26,36 @@ public class Programmer extends Employee {
     public Programmer(String codeLang, String name, String gender, double salary) {
         super(name, gender, salary);
         this.codeLang = codeLang;
+        
+        if (gender.equalsIgnoreCase("male")) {
+            noOfMaleProgrammers += 1;
+        } else if (gender.equalsIgnoreCase("female")) {
+            noOfFemaleProgrammers += 1;
+        }
+    }
+
+    public static int getNoOfProgrammers() {
+        return noOfProgrammers;
+    }
+
+    public static void setNoOfProgrammers(int aNoOfProgrammers) {
+        noOfProgrammers = aNoOfProgrammers;
+    }
+
+    public static int getNoOfMaleProgrammers() {
+        return noOfMaleProgrammers;
+    }
+
+    public static void setNoOfMaleProgrammers(int aNoOfMaleProgrammers) {
+        noOfMaleProgrammers = aNoOfMaleProgrammers;
+    }
+
+    public static int getNoOfFemaleProgrammers() {
+        return noOfFemaleProgrammers;
+    }
+
+    public static void setNoOfFemaleProgrammers(int aNoOfFemaleProgrammers) {
+        noOfFemaleProgrammers = aNoOfFemaleProgrammers;
     }
 
     public String getCodeLang() {
@@ -45,6 +82,12 @@ public class Programmer extends Employee {
 
         System.out.println("Input programming language:");
         this.setCodeLang(sc.nextLine());
+
+        if (this.getGender().equalsIgnoreCase("male")) {
+            noOfMaleProgrammers += 1;
+        } else if (this.getGender().equalsIgnoreCase("female")) {
+            noOfFemaleProgrammers += 1;
+        }
 
         employees.add(this);
     }

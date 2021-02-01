@@ -19,6 +19,8 @@ public class Employee {
     private double salary;
     private double bonus;
     private double salaryWithBonus;
+    private static int noOfMaleEmployees;
+    private static int noOfFemaleEmployees;
 
     public Employee() {
         this.employeeNr = employeeNumberGenerator++;
@@ -31,6 +33,29 @@ public class Employee {
         this.gender = gender;
         this.salary = salary;
         this.salaryWithBonus = salary;
+
+        if (gender.equalsIgnoreCase("male")) {
+            noOfMaleEmployees += 1;
+        } else if (gender.equalsIgnoreCase("female")) {
+            noOfFemaleEmployees += 1;
+        }
+
+    }
+
+    public static int getNoOfMaleEmployees() {
+        return noOfMaleEmployees;
+    }
+
+    public static void setNoOfMaleEmployees(int aNoOfMaleEmployees) {
+        noOfMaleEmployees = aNoOfMaleEmployees;
+    }
+
+    public static int getNoOfFemaleEmployees() {
+        return noOfFemaleEmployees;
+    }
+
+    public static void setNoOfFemaleEmployees(int aNoOfFemaleEmployees) {
+        noOfFemaleEmployees = aNoOfFemaleEmployees;
     }
 
     public double getSalaryWithBonus() {
@@ -83,8 +108,8 @@ public class Employee {
 
     public void bonus() {
     }
-    
-    public void update(){
+
+    public void update() {
     }
 
     public void add() {
@@ -96,6 +121,13 @@ public class Employee {
         System.out.println("Input salary:");
         this.setSalary(readDouble());
         this.bonus();
+
+        if (this.getGender().equalsIgnoreCase("male")) {
+            noOfMaleEmployees += 1;
+        } else if (this.getGender().equalsIgnoreCase("female")) {
+            noOfFemaleEmployees += 1;
+        }
+
     }
 
     @Override
