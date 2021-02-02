@@ -1,23 +1,74 @@
 package polymorphism;
 
-public class Utilities {
+import java.util.InputMismatchException;
+import static polymorphism.Methods.*;
 
-    public static double readDouble() {
-        double choice = Methods.sc.nextDouble();
-        Methods.sc.nextLine();
-        return choice;
+public class Utilities {
+    
+        public static double readDouble() {
+
+        boolean loop = true;
+        double number = -1;
+
+        while (loop) {
+            try {
+                number = sc.nextDouble();
+                sc.nextLine();
+                loop = false;
+            }
+            
+            catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("Invalid input. Please try again.");
+            }
+        } // loop
+        return number;
     }
 
-    public static boolean readBoolean() {
-        boolean choice = Methods.sc.nextBoolean();
-        Methods.sc.nextLine();
-        return choice;
+//    public static boolean readBoolean() {
+//        boolean choice = Methods.sc.nextBoolean();
+//        Methods.sc.nextLine();
+//        return choice;
+//    }
+    
+        public static boolean readBoolean() {
+
+        boolean loop = true;
+        boolean certificate = false;
+
+        while (loop) {
+            try {
+                certificate = sc.nextBoolean();
+                sc.nextLine();
+                loop = false;
+            }
+            
+            catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("Invalid input. Please try again.");
+            }
+        } // loop
+        return certificate;
     }
 
     public static int readInt() {
-        int choice = Methods.sc.nextInt();
-        Methods.sc.nextLine();
-        return choice;
+
+        boolean loop = true;
+        int number = -1;
+
+        while (loop) {
+            try {
+                number = sc.nextInt();
+                sc.nextLine();
+                loop = false;
+            }
+            
+            catch (InputMismatchException e) {
+                sc.nextLine();
+                System.out.println("Invalid input. Please try again.");
+            }
+        } // loop
+        return number;
     }
 
     public static String theStringTrimmer(String s) {

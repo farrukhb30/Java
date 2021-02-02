@@ -134,15 +134,15 @@ public class UI {
         switch (Methods.sc.nextLine()) {
             case "1":
                 Programmer p = new Programmer();
-                p.add();
+                p.addEmployee();
                 break;
             case "2":
                 GraphicDesigner g = new GraphicDesigner();
-                g.add();
+                g.addEmployee();
                 break;
             case "3":
                 TestSpecialist t = new TestSpecialist();
-                t.add();
+                t.addEmployee();
                 break;
             case "0":
                 break;

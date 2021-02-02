@@ -4,7 +4,7 @@ import static polymorphism.MainPoly.employees;
 import static polymorphism.Methods.sc;
 import static polymorphism.Utilities.*;
 
-public class GraphicDesigner extends Employee {
+public class GraphicDesigner extends Employee implements StaffManagement{
 
     private String techStack;
     private static int noOfGraphicDesigners;
@@ -64,7 +64,7 @@ public class GraphicDesigner extends Employee {
     }
 
     @Override
-    public void add() {
+    public void addEmployee() {
 
         super.add();
 
@@ -94,6 +94,7 @@ public class GraphicDesigner extends Employee {
                 break;
             case 3:
                 this.setSalary(readDouble());
+                this.bonus();
                 break;
             case 4:
                 this.setTechStack(sc.nextLine());

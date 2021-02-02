@@ -8,7 +8,7 @@ import static polymorphism.MainPoly.employees;
 import static polymorphism.Methods.sc;
 import static polymorphism.Utilities.*;
 
-public class Programmer extends Employee {
+public class Programmer extends Employee implements StaffManagement {
 
     private String codeLang;
     private static int noOfProgrammers;
@@ -76,7 +76,7 @@ public class Programmer extends Employee {
     }
 
     @Override
-    public void add() {
+    public void addEmployee() {
 
         super.add();
 
@@ -106,6 +106,7 @@ public class Programmer extends Employee {
                 break;
             case 3:
                 this.setSalary(readDouble());
+                this.bonus();
                 break;
             case 4:
                 this.setCodeLang(sc.nextLine());
@@ -122,5 +123,4 @@ public class Programmer extends Employee {
     public String toString() {
         return super.toString() + "CodeLang=" + Utilities.theStringTrimmer(codeLang);
     }
-
 }

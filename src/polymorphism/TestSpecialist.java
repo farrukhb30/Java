@@ -6,7 +6,7 @@ import static polymorphism.Utilities.readBoolean;
 import static polymorphism.Utilities.readDouble;
 import static polymorphism.Utilities.readInt;
 
-public class TestSpecialist extends Employee {
+public class TestSpecialist extends Employee implements StaffManagement{
 
     private boolean ISTQBcertified;
     private static int noOfTestSpecialists;
@@ -66,7 +66,7 @@ public class TestSpecialist extends Employee {
     }
 
     @Override
-    public void add() {
+    public void addEmployee() {
 
         super.add();
 
@@ -96,6 +96,7 @@ public class TestSpecialist extends Employee {
                 break;
             case 3:
                 this.setSalary(readDouble());
+                this.bonus();
                 break;
             case 4:
                 this.setISTQBcertified(Utilities.readBoolean());
