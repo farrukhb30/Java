@@ -1,7 +1,6 @@
 package polymorphism;
 
 import static polymorphism.Methods.*;
-import static polymorphism.EmployeeManagement.*;
 import static polymorphism.Utilities.*;
 
 public class UI {

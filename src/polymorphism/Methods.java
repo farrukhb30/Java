@@ -32,16 +32,16 @@ public class Methods {
         printAllEmployees();
 
         System.out.println("Please input employee number:");
-        employees.remove(getEmployeeById(readInt()));
+        StaffManagement.employees.remove(getEmployeeById(readInt()));
 
         printAllEmployees();
     }
 
     public static Employee getEmployeeById(int employeeId) {
         Employee e;
-        for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).getEmployeeNr() == employeeId) {
-                e = employees.get(i);
+        for (int i = 0; i < StaffManagement.employees.size(); i++) {
+            if (StaffManagement.employees.get(i).getEmployeeNr() == employeeId) {
+                e = StaffManagement.employees.get(i);
                 return e;
             }
         }
@@ -57,10 +57,10 @@ public class Methods {
         System.out.println("Please input employee name:");
         String empName = sc.nextLine();
 
-        for (int i = (employees.size() - 1); i > 0; i--) {
-            if (employees.get(i).getName().equalsIgnoreCase(empName)) {
-                e = employees.get(i);
-                employees.remove(e);
+        for (int i = (StaffManagement.employees.size() - 1); i > 0; i--) {
+            if (StaffManagement.employees.get(i).getName().equalsIgnoreCase(empName)) {
+                e = StaffManagement.employees.get(i);
+                StaffManagement.employees.remove(e);
             }
         }
 
@@ -70,7 +70,7 @@ public class Methods {
     public static void printAllEmployees() {
 
         tableHeader();
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
 
             System.out.println(employee);
         }
@@ -80,18 +80,18 @@ public class Methods {
 
         double averageSalaray = 0;
 
-        for (int i = 0; i < employees.size(); i++) {
+        for (int i = 0; i < StaffManagement.employees.size(); i++) {
 
-            averageSalaray = employees.get(i).getSalary() + averageSalaray;
+            averageSalaray = StaffManagement.employees.get(i).getSalary() + averageSalaray;
         }
 
-        System.out.println("The average salaray for all the employees: " + averageSalaray / employees.size());
+        System.out.println("The average salaray for all the employees: " + averageSalaray / StaffManagement.employees.size());
     }
 
     public static void genderDistribution() {
 
-        System.out.printf("Male employees percentage: %.2f\n", (double)((Employee.getNoOfMaleEmployees() * 100) / employees.size()));
-        System.out.printf("Female employees percentage : %.2f\n", (double)((Employee.getNoOfFemaleEmployees() * 100) / employees.size()));
+        System.out.printf("Male employees percentage: %.2f\n", (double)((Employee.getNoOfMaleEmployees() * 100) / StaffManagement.employees.size()));
+        System.out.printf("Female employees percentage : %.2f\n", (double)((Employee.getNoOfFemaleEmployees() * 100) / StaffManagement.employees.size()));
 
         System.out.println("\nGender distribution among employees respective their professional role");
 
@@ -109,21 +109,21 @@ public class Methods {
 
         int highestSalary = 0;
 
-        for (int i = 0; i < employees.size(); i++) {
+        for (int i = 0; i < StaffManagement.employees.size(); i++) {
 
-            if (employees.get(i).getSalary() > employees.get(highestSalary).getSalary()) {
+            if (StaffManagement.employees.get(i).getSalary() > StaffManagement.employees.get(highestSalary).getSalary()) {
 
                 highestSalary = i;
             }
         }
 
-        double highest = employees.get(highestSalary).getSalary();
+        double highest = StaffManagement.employees.get(highestSalary).getSalary();
 
         if (highestSalary != 0) {
             tableHeader();
         }
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
             if (employee.getSalary() == highest) {
                 System.out.println(employee);
             }
@@ -136,20 +136,20 @@ public class Methods {
 
         int lowestSalary = 0;
 
-        for (int i = 0; i < employees.size(); i++) {
+        for (int i = 0; i < StaffManagement.employees.size(); i++) {
 
-            if (employees.get(i).getSalary() < employees.get(lowestSalary).getSalary()) {
+            if (StaffManagement.employees.get(i).getSalary() < StaffManagement.employees.get(lowestSalary).getSalary()) {
 
                 lowestSalary = i;
             }
         }
-        double lowest = employees.get(lowestSalary).getSalary();
+        double lowest = StaffManagement.employees.get(lowestSalary).getSalary();
 
         if (lowestSalary != 0) {
             tableHeader();
         }
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
             if (employee.getSalary() == lowest) {
                 System.out.println(employee);
             }
@@ -160,7 +160,7 @@ public class Methods {
 
         double totalBonus = 0;
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
 
             totalBonus = employee.getBonus() + totalBonus;
 
@@ -172,7 +172,7 @@ public class Methods {
 
         double totalProgrammerBonus = 0;
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
 
             if (employee instanceof Programmer) {
                 totalProgrammerBonus = employee.getBonus() + totalProgrammerBonus;
@@ -186,7 +186,7 @@ public class Methods {
 
         double totalGraphicDesignerBonus = 0;
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
 
             if (employee instanceof GraphicDesigner) {
                 totalGraphicDesignerBonus = employee.getBonus() + totalGraphicDesignerBonus;
@@ -200,7 +200,7 @@ public class Methods {
 
         double totalTestSpecialistBonus = 0;
 
-        for (Employee employee : employees) {
+        for (Employee employee : StaffManagement.employees) {
 
             if (employee instanceof TestSpecialist) {
                 totalTestSpecialistBonus = employee.getBonus() + totalTestSpecialistBonus;

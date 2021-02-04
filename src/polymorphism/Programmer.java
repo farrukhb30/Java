@@ -4,7 +4,6 @@
  */
 package polymorphism;
 
-import static polymorphism.MainPoly.employees;
 import static polymorphism.Methods.sc;
 import static polymorphism.Utilities.*;
 
@@ -26,7 +25,7 @@ public class Programmer extends Employee implements StaffManagement {
     public Programmer(String codeLang, String name, String gender, double salary) {
         super(name, gender, salary);
         this.codeLang = codeLang;
-        
+
         if (gender.equalsIgnoreCase("male")) {
             noOfMaleProgrammers += 1;
         } else if (gender.equalsIgnoreCase("female")) {
@@ -89,7 +88,7 @@ public class Programmer extends Employee implements StaffManagement {
             noOfFemaleProgrammers += 1;
         }
 
-        employees.add(this);
+        StaffManagement.employees.add(this);
     }
 
     @Override
@@ -99,16 +98,20 @@ public class Programmer extends Employee implements StaffManagement {
 
         switch (readInt()) {
             case 1:
+                System.out.print("New name: ");
                 this.setName(sc.nextLine());
                 break;
             case 2:
+                System.out.print("New gender: ");
                 this.setGender(sc.nextLine());
                 break;
             case 3:
+                System.out.print("New salary: ");
                 this.setSalary(readDouble());
                 this.bonus();
                 break;
             case 4:
+                System.out.print("New code language: ");
                 this.setCodeLang(sc.nextLine());
                 break;
             case 0:

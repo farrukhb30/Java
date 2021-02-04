@@ -5,11 +5,10 @@
 package polymorphism;
 
 import java.util.ArrayList;
-import static polymorphism.EmployeeManagement.*;
+import static polymorphism.Utilities.*;
 
 public class MainPoly {
 
-    public static ArrayList<Employee> employees = new ArrayList<>();
 
     public static void main(String[] args) {
 

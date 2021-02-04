@@ -5,14 +5,18 @@
  */
 package polymorphism;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author toros
  */
 public interface StaffManagement{
+
+    public static ArrayList<Employee> employees = new ArrayList<>();
     
     // public static final
-    double CONSTANTPI = 3.14;
+    // double CONSTANTPI = 3.14;
 
     // public
     void addEmployee();

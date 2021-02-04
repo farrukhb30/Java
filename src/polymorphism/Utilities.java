@@ -86,5 +86,32 @@ public class Utilities {
     public static void tableHeader() {
         System.out.println("ID              Name            Gender          Salary          Salary & Bonus  Qualifications");
     }
+    
+        public static void loadDB() {
 
+        Programmer p1 = new Programmer("Java", "Toros Kutlu", "male", 50000.25);
+        Programmer p2 = new Programmer("Python", "Lara Karlsson", "female", 60000.50);
+        GraphicDesigner g1 = new GraphicDesigner("PhotoShop", "Sara Anderson", "female", 40000);
+        GraphicDesigner g2 = new GraphicDesigner("Gimp", "Urban Petri", "male", 35000.999);
+        TestSpecialist t1 = new TestSpecialist(true, "Maria Pirat", "female", 6500);
+        TestSpecialist t2 = new TestSpecialist(false, "Pajeet Singh", "male", 6500);
+        TestSpecialist t3 = new TestSpecialist(false, "Lara Karlsson", "female", 165000.8776554435);
+
+        
+        StaffManagement.employees.add(p1);
+        StaffManagement.employees.add(p2);
+        StaffManagement.employees.add(g1);
+        StaffManagement.employees.add(g2);
+        StaffManagement.employees.add(t1);
+        StaffManagement.employees.add(t2);
+        StaffManagement.employees.add(t3);
+       
+        for (Employee employee : StaffManagement.employees) {
+            employee.bonus();
+        }
+
+
+        Methods.printAllEmployees();
+        System.out.println("");
+    }
 }

@@ -1,6 +1,5 @@
 package polymorphism;
 
-import static polymorphism.MainPoly.*;
 import static polymorphism.Methods.sc;
 import static polymorphism.Utilities.readBoolean;
 import static polymorphism.Utilities.readDouble;
@@ -79,7 +78,7 @@ public class TestSpecialist extends Employee implements StaffManagement{
             noOfFemaleTestSpecialists += 1;
         }
 
-        employees.add(this);
+        StaffManagement.employees.add(this);
     }
 
     @Override
@@ -89,16 +88,20 @@ public class TestSpecialist extends Employee implements StaffManagement{
 
         switch (readInt()) {
             case 1:
+                System.out.print("New name: ");
                 this.setName(sc.nextLine());
                 break;
             case 2:
+                System.out.print("New gender: ");
                 this.setGender(sc.nextLine());
                 break;
             case 3:
+                System.out.print("New salary: ");
                 this.setSalary(readDouble());
                 this.bonus();
                 break;
             case 4:
+                System.out.println("ISTQB Certified (true / false): ");
                 this.setISTQBcertified(Utilities.readBoolean());
                 break;
             case 0:
