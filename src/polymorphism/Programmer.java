@@ -77,18 +77,18 @@ public class Programmer extends Employee implements StaffManagement {
     @Override
     public void addEmployee() {
 
-        super.add();
+        super.add(); // add() method from super class first and then below
 
         System.out.println("Input programming language:");
-        this.setCodeLang(sc.nextLine());
+        this.setCodeLang(sc.nextLine()); // this ??
 
         if (this.getGender().equalsIgnoreCase("male")) {
-            noOfMaleProgrammers += 1;
+            noOfMaleProgrammers += 1; // noOfMaleProgrammers++ ?
         } else if (this.getGender().equalsIgnoreCase("female")) {
             noOfFemaleProgrammers += 1;
         }
 
-        StaffManagement.employees.add(this);
+        StaffManagement.employees.add(this); // this ??
     }
 
     @Override

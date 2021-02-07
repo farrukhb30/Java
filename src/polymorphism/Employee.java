@@ -8,8 +8,9 @@ import static polymorphism.Utilities.*;
 import java.text.DecimalFormat;
 import static polymorphism.Methods.sc;
 
-public class Employee {
+public class Employee { // we can make this class abstract?
 
+    // ??
     DecimalFormat df = new DecimalFormat("###.##");
 
     public static int employeeNumberGenerator = 1;
@@ -35,7 +36,7 @@ public class Employee {
         this.salaryWithBonus = salary;
 
         if (gender.equalsIgnoreCase("male")) {
-            noOfMaleEmployees += 1;
+            noOfMaleEmployees += 1; // or noOfMaleEmployees++ ??
         } else if (gender.equalsIgnoreCase("female")) {
             noOfFemaleEmployees += 1;
         }
@@ -133,6 +134,7 @@ public class Employee {
     @Override
     public String toString() {
 
+        // ??
         return theStringTrimmer(String.valueOf(employeeNr)) + theStringTrimmer(name) + theStringTrimmer(gender) + theStringTrimmer(df.format(salary)) + theStringTrimmer(df.format(salaryWithBonus));
 
     }

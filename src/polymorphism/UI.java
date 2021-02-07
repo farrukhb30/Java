@@ -59,7 +59,7 @@ public class UI {
             default ->
                 System.out.println("Invalid input! Please try again.");
         }
-        //                printByID();
+        //                printByID(); // remove?
     }
 
     //Shows the menu for statistics when you get into subcategory of main menu.
@@ -99,7 +99,7 @@ public class UI {
         System.out.println("2. Total bonus for all programmers");
         System.out.println("3. Total bonus for all graphic designers");
         System.out.println("4. Total bonus for all test specialists");
-        System.out.println("0. Go back to main menu");
+        System.out.println("0. Go back to main menu"); // go back to previous menu ?
 
         switch (readInt()) {
             
@@ -123,14 +123,14 @@ public class UI {
         }
     }
 
-    //Adds the employee by asking differnet fields of employee from User.
+    //Adds the employee by asking different fields of employee from User.
     public static void addEmployeeByUser() {
         System.out.println("What kind of employee?");
         System.out.println("1. Programmer");
         System.out.println("2. Graphic Designer");
         System.out.println("3. Test Specialist");
         System.out.println("0. Go back to main menu");
-        switch (Methods.sc.nextLine()) {
+        switch (Methods.sc.nextLine()) { // import scanner?
             case "1":
                 Programmer p = new Programmer();
                 p.addEmployee();

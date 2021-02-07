@@ -71,7 +71,7 @@ public class Utilities {
         return number;
     }
 
-    public static String theStringTrimmer(String s) {
+    public static String theStringTrimmer(String s) { // ??
         if (s.length() < 15) {
             int max = 15 - s.length();
             for (int i = 0; i <= max; i++) {
@@ -107,7 +107,7 @@ public class Utilities {
         StaffManagement.employees.add(t3);
        
         for (Employee employee : StaffManagement.employees) {
-            employee.bonus();
+            employee.bonus(); // polymorphism?
         }
 
 

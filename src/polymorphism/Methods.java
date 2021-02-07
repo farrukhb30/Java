@@ -3,6 +3,7 @@ package polymorphism;
 import java.util.*;
 import static polymorphism.Utilities.*;
 import static polymorphism.MainPoly.*;
+// we can remove StaffManagement. by importing class StaffManagement.
 
 public class Methods {
 
@@ -45,19 +46,19 @@ public class Methods {
                 return e;
             }
         }
-        return null;
+        return null; // or return System.out.println("Sorry, no employee with that ID was found.");
     }
 
     public static void removeEmployeeByName() {
 
-        Employee e = new Employee();
+        Employee e = new Employee(); // ??
 
         printAllEmployees();
 
         System.out.println("Please input employee name:");
         String empName = sc.nextLine();
 
-        for (int i = (StaffManagement.employees.size() - 1); i > 0; i--) {
+        for (int i = (StaffManagement.employees.size() - 1); i > 0; i--) { // loop backwards
             if (StaffManagement.employees.get(i).getName().equalsIgnoreCase(empName)) {
                 e = StaffManagement.employees.get(i);
                 StaffManagement.employees.remove(e);
@@ -78,18 +79,21 @@ public class Methods {
 
     public static void calculateAverageSalary() {
 
-        double averageSalaray = 0;
+        double averageSalary = 0;
 
         for (int i = 0; i < StaffManagement.employees.size(); i++) {
 
-            averageSalaray = StaffManagement.employees.get(i).getSalary() + averageSalaray;
+            averageSalary = StaffManagement.employees.get(i).getSalary() + averageSalary;
         }
 
-        System.out.println("The average salaray for all the employees: " + averageSalaray / StaffManagement.employees.size());
+        System.out.println("The average salaray for all the employees: " + averageSalary / StaffManagement.employees.size());
     }
 
     public static void genderDistribution() {
 
+        // what is printf ??
+        // what is %.2f ?? 
+        // Why multiply by 100 ??
         System.out.printf("Male employees percentage: %.2f\n", (double)((Employee.getNoOfMaleEmployees() * 100) / StaffManagement.employees.size()));
         System.out.printf("Female employees percentage : %.2f\n", (double)((Employee.getNoOfFemaleEmployees() * 100) / StaffManagement.employees.size()));
 
@@ -117,6 +121,7 @@ public class Methods {
             }
         }
 
+        // below ??
         double highest = StaffManagement.employees.get(highestSalary).getSalary();
 
         if (highestSalary != 0) {
@@ -165,9 +170,12 @@ public class Methods {
             totalBonus = employee.getBonus() + totalBonus;
 
         }
+        
+        // totalBonus visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the employees: " + totalBonus);
     }
 
+    // Detta är arv. Inte polymorfism.
     public static void totalProgrammersBonusPayments() {
 
         double totalProgrammerBonus = 0;
@@ -179,6 +187,7 @@ public class Methods {
             }
 
         }
+        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Programmers: " + totalProgrammerBonus);
     }
 
@@ -193,6 +202,7 @@ public class Methods {
             }
 
         }
+        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Graphic Designers: " + totalGraphicDesignerBonus);
     }
 
@@ -207,6 +217,7 @@ public class Methods {
             }
 
         }
+        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Test Specialists: " + totalTestSpecialistBonus);
     }
 
