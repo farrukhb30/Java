@@ -14,7 +14,7 @@ public class Methods {
         Employee e;
         printAllEmployees();
 
-        System.out.println("Please input employee number:");
+        System.out.println("Please input employee ID:");
         e = getEmployeeById(readInt());
 
         System.out.println("What would You like to update?");
@@ -22,6 +22,7 @@ public class Methods {
         System.out.println("1. Name");
         System.out.println("2. Gender");
         System.out.println("3. Salary");
+        // System.out.println("3. All fields"); ??
 
         e.update();
 

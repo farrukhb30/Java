@@ -14,7 +14,8 @@ public class Programmer extends Employee implements StaffManagement {
     private static int noOfMaleProgrammers;
     private static int noOfFemaleProgrammers;
 
-    {
+    // how does this work ?
+    { 
         noOfProgrammers += 1;
     }
 
@@ -66,7 +67,7 @@ public class Programmer extends Employee implements StaffManagement {
     }
 
     @Override
-    public void bonus() {
+    public void bonus() { // polymorphism ?
 
         this.setSalaryWithBonus(this.getSalary() * (1.01));
 
@@ -92,7 +93,7 @@ public class Programmer extends Employee implements StaffManagement {
     }
 
     @Override
-    public void update() {
+    public void update() { // polymorphism ??
         System.out.println("4. Code language?");
         System.out.println("0. Exit");
 
