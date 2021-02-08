@@ -1,9 +1,12 @@
 package polymorphism;
 
+import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import static polymorphism.Methods.*;
 
 public class Utilities {
+    
+        public static DecimalFormat df = new DecimalFormat("###.##");
     
         public static double readDouble() {
 
@@ -24,12 +27,6 @@ public class Utilities {
         } // loop
         return number;
     }
-
-//    public static boolean readBoolean() {
-//        boolean choice = Methods.sc.nextBoolean();
-//        Methods.sc.nextLine();
-//        return choice;
-//    }
     
         public static boolean readBoolean() {
 
@@ -71,7 +68,7 @@ public class Utilities {
         return number;
     }
 
-    public static String theStringTrimmer(String s) { // ??
+    public static String theStringTrimmer(String s) {
         if (s.length() < 15) {
             int max = 15 - s.length();
             for (int i = 0; i <= max; i++) {
@@ -90,6 +87,7 @@ public class Utilities {
         public static void loadDB() {
 
         Programmer p1 = new Programmer("Java", "Toros Kutlu", "male", 50000.25);
+        // Employee p3 = new Programmer("Java", "Toros Kutlu", "male", 50000.25);  // exempel på arv
         Programmer p2 = new Programmer("Python", "Lara Karlsson", "female", 60000.50);
         GraphicDesigner g1 = new GraphicDesigner("PhotoShop", "Sara Anderson", "female", 40000);
         GraphicDesigner g2 = new GraphicDesigner("Gimp", "Urban Petri", "male", 35000.999);
@@ -107,11 +105,12 @@ public class Utilities {
         StaffManagement.employees.add(t3);
        
         for (Employee employee : StaffManagement.employees) {
-            employee.bonus(); // polymorphism?
+            employee.bonus();
         }
 
 
-        Methods.printAllEmployees();
+        printAllEmployees();
         System.out.println("");
     }
+    // we can make this class abstract?
 }

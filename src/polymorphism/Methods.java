@@ -1,9 +1,8 @@
 package polymorphism;
 
 import java.util.*;
+import static polymorphism.StaffManagement.*;
 import static polymorphism.Utilities.*;
-import static polymorphism.MainPoly.*;
-// we can remove StaffManagement. by importing class StaffManagement.
 
 public class Methods {
 
@@ -13,18 +12,20 @@ public class Methods {
 
         Employee e;
         printAllEmployees();
+        boolean updateEmployeeLoop = true;
 
         System.out.println("Please input employee ID:");
         e = getEmployeeById(readInt());
 
-        System.out.println("What would You like to update?");
-        System.out.println("Input number to choose from menu:");
-        System.out.println("1. Name");
-        System.out.println("2. Gender");
-        System.out.println("3. Salary");
-        // System.out.println("3. All fields"); ??
+        while (updateEmployeeLoop) {
 
-        e.update();
+            System.out.println("What would You like to update?");
+            System.out.println("Input number to choose from menu:");
+            System.out.println("1. Name");
+            System.out.println("2. Gender");
+            System.out.println("3. Salary");
+            e.update();
+        }
 
         printAllEmployees();
     }
@@ -34,16 +35,16 @@ public class Methods {
         printAllEmployees();
 
         System.out.println("Please input employee number:");
-        StaffManagement.employees.remove(getEmployeeById(readInt()));
+        employees.remove(getEmployeeById(readInt()));
 
         printAllEmployees();
     }
 
     public static Employee getEmployeeById(int employeeId) {
         Employee e;
-        for (int i = 0; i < StaffManagement.employees.size(); i++) {
-            if (StaffManagement.employees.get(i).getEmployeeNr() == employeeId) {
-                e = StaffManagement.employees.get(i);
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getEmployeeNr() == employeeId) {
+                e = employees.get(i);
                 return e;
             }
         }
@@ -59,10 +60,10 @@ public class Methods {
         System.out.println("Please input employee name:");
         String empName = sc.nextLine();
 
-        for (int i = (StaffManagement.employees.size() - 1); i > 0; i--) { // loop backwards
-            if (StaffManagement.employees.get(i).getName().equalsIgnoreCase(empName)) {
-                e = StaffManagement.employees.get(i);
-                StaffManagement.employees.remove(e);
+        for (int i = (employees.size() - 1); i > 0; i--) { // loop backwards
+            if (employees.get(i).getName().equalsIgnoreCase(empName)) {
+                e = employees.get(i);
+                employees.remove(e);
             }
         }
 
@@ -72,7 +73,7 @@ public class Methods {
     public static void printAllEmployees() {
 
         tableHeader();
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
 
             System.out.println(employee);
         }
@@ -82,12 +83,12 @@ public class Methods {
 
         double averageSalary = 0;
 
-        for (int i = 0; i < StaffManagement.employees.size(); i++) {
+        for (int i = 0; i < employees.size(); i++) {
 
-            averageSalary = StaffManagement.employees.get(i).getSalary() + averageSalary;
+            averageSalary = employees.get(i).getSalary() + averageSalary;
         }
 
-        System.out.println("The average salaray for all the employees: " + averageSalary / StaffManagement.employees.size());
+        System.out.println("The average salary for all the employees: " + df.format(averageSalary / employees.size()));
     }
 
     public static void genderDistribution() {
@@ -95,41 +96,41 @@ public class Methods {
         // what is printf ??
         // what is %.2f ?? 
         // Why multiply by 100 ??
-        System.out.printf("Male employees percentage: %.2f\n", (double)((Employee.getNoOfMaleEmployees() * 100) / StaffManagement.employees.size()));
-        System.out.printf("Female employees percentage : %.2f\n", (double)((Employee.getNoOfFemaleEmployees() * 100) / StaffManagement.employees.size()));
+        System.out.printf("Male employees percentage: %.2f\n", (double) ((Employee.getNoOfMaleEmployees() * 100) / employees.size()));
+        System.out.printf("Female employees percentage : %.2f\n", (double) ((Employee.getNoOfFemaleEmployees() * 100) / employees.size()));
 
         System.out.println("\nGender distribution among employees respective their professional role");
 
-        System.out.printf("Male programmers percentage: %.2f\n", (double)((Programmer.getNoOfMaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
-        System.out.printf("Female programmers percentage : %.2f\n", (double)((Programmer.getNoOfFemaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
+        System.out.printf("Male programmers percentage: %.2f\n", (double) ((Programmer.getNoOfMaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
+        System.out.printf("Female programmers percentage : %.2f\n", (double) ((Programmer.getNoOfFemaleProgrammers() * 100) / Programmer.getNoOfProgrammers()));
 
-        System.out.printf("Male graphic designres percentage: %.2f\n", (double)((GraphicDesigner.getNoOfMaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
-        System.out.printf("Female graphic designers percentage : %.2f\n", (double)((GraphicDesigner.getNoOfFemaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
+        System.out.printf("Male graphic designres percentage: %.2f\n", (double) ((GraphicDesigner.getNoOfMaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
+        System.out.printf("Female graphic designers percentage : %.2f\n", (double) ((GraphicDesigner.getNoOfFemaleGraphicDesigners() * 100) / GraphicDesigner.getNoOfGraphicDesigners()));
 
-        System.out.printf("Male programmers percentage: %.2f\n", (double)((TestSpecialist.getNoOfMaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
-        System.out.printf("Female programmers percentage : %.2f\n", (double)((TestSpecialist.getNoOfFemaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
+        System.out.printf("Male programmers percentage: %.2f\n", (double) ((TestSpecialist.getNoOfMaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
+        System.out.printf("Female programmers percentage : %.2f\n", (double) ((TestSpecialist.getNoOfFemaleTestSpecialists() * 100) / TestSpecialist.getNoOfTestSpecialists()));
     }
 
     public static void findHighestPaidEmployee() {
 
         int highestSalary = 0;
 
-        for (int i = 0; i < StaffManagement.employees.size(); i++) {
+        for (int i = 0; i < employees.size(); i++) {
 
-            if (StaffManagement.employees.get(i).getSalary() > StaffManagement.employees.get(highestSalary).getSalary()) {
+            if (employees.get(i).getSalary() > employees.get(highestSalary).getSalary()) {
 
                 highestSalary = i;
             }
         }
 
         // below ??
-        double highest = StaffManagement.employees.get(highestSalary).getSalary();
+        double highest = employees.get(highestSalary).getSalary();
 
         if (highestSalary != 0) {
             tableHeader();
         }
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
             if (employee.getSalary() == highest) {
                 System.out.println(employee);
             }
@@ -142,20 +143,20 @@ public class Methods {
 
         int lowestSalary = 0;
 
-        for (int i = 0; i < StaffManagement.employees.size(); i++) {
+        for (int i = 0; i < employees.size(); i++) {
 
-            if (StaffManagement.employees.get(i).getSalary() < StaffManagement.employees.get(lowestSalary).getSalary()) {
+            if (employees.get(i).getSalary() < employees.get(lowestSalary).getSalary()) {
 
                 lowestSalary = i;
             }
         }
-        double lowest = StaffManagement.employees.get(lowestSalary).getSalary();
+        double lowest = employees.get(lowestSalary).getSalary();
 
         if (lowestSalary != 0) {
             tableHeader();
         }
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
             if (employee.getSalary() == lowest) {
                 System.out.println(employee);
             }
@@ -166,14 +167,14 @@ public class Methods {
 
         double totalBonus = 0;
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
 
             totalBonus = employee.getBonus() + totalBonus;
 
         }
-        
+
         // totalBonus visar för många decimaler. Borde klippas bort xxx.xx
-        System.out.println("Total bonus for all the employees: " + totalBonus);
+        System.out.println("Total bonus for all the employees: " + df.format(totalBonus) + "\n");
     }
 
     // Detta är arv. Inte polymorfism.
@@ -181,7 +182,7 @@ public class Methods {
 
         double totalProgrammerBonus = 0;
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
 
             if (employee instanceof Programmer) {
                 totalProgrammerBonus = employee.getBonus() + totalProgrammerBonus;
@@ -189,14 +190,14 @@ public class Methods {
 
         }
         // visar för många decimaler. Borde klippas bort xxx.xx
-        System.out.println("Total bonus for all the Programmers: " + totalProgrammerBonus);
+        System.out.println("Total bonus for all the Programmers: " + df.format(totalProgrammerBonus) + "\n");
     }
 
     public static void totalGraphicDesignerBonusPayments() {
 
         double totalGraphicDesignerBonus = 0;
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
 
             if (employee instanceof GraphicDesigner) {
                 totalGraphicDesignerBonus = employee.getBonus() + totalGraphicDesignerBonus;
@@ -204,14 +205,14 @@ public class Methods {
 
         }
         // visar för många decimaler. Borde klippas bort xxx.xx
-        System.out.println("Total bonus for all the Graphic Designers: " + totalGraphicDesignerBonus);
+        System.out.println("Total bonus for all the Graphic Designers: " + df.format(totalGraphicDesignerBonus) + "\n");
     }
 
     public static void totalTestSpecialistBonusPayments() {
 
         double totalTestSpecialistBonus = 0;
 
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
 
             if (employee instanceof TestSpecialist) {
                 totalTestSpecialistBonus = employee.getBonus() + totalTestSpecialistBonus;
@@ -219,7 +220,7 @@ public class Methods {
 
         }
         // visar för många decimaler. Borde klippas bort xxx.xx
-        System.out.println("Total bonus for all the Test Specialists: " + totalTestSpecialistBonus);
+        System.out.println("Total bonus for all the Test Specialists: " + df.format(totalTestSpecialistBonus) + "\n");
     }
 
     public static void printEmployeeByID() {

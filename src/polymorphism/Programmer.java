@@ -1,10 +1,7 @@
-/**
- *
- * @author toros
- */
 package polymorphism;
 
-import static polymorphism.Methods.sc;
+import static polymorphism.Methods.*;
+import static polymorphism.UI.*;
 import static polymorphism.Utilities.*;
 
 public class Programmer extends Employee implements StaffManagement {
@@ -14,8 +11,9 @@ public class Programmer extends Employee implements StaffManagement {
     private static int noOfMaleProgrammers;
     private static int noOfFemaleProgrammers;
 
-    // how does this work ?
-    { 
+    // initialization block
+    // plussar variabeln varje gång ett objekt av klass Programmer skapas
+    {
         noOfProgrammers += 1;
     }
 
@@ -67,7 +65,7 @@ public class Programmer extends Employee implements StaffManagement {
     }
 
     @Override
-    public void bonus() { // polymorphism ?
+    public void bonus() {
 
         this.setSalaryWithBonus(this.getSalary() * (1.01));
 
@@ -81,44 +79,45 @@ public class Programmer extends Employee implements StaffManagement {
         super.add(); // add() method from super class first and then below
 
         System.out.println("Input programming language:");
-        this.setCodeLang(sc.nextLine()); // this ??
+        this.setCodeLang(sc.nextLine()); //
 
         if (this.getGender().equalsIgnoreCase("male")) {
-            noOfMaleProgrammers += 1; // noOfMaleProgrammers++ ?
+            noOfMaleProgrammers += 1; // samma som noOfMaleProgrammers++ 
         } else if (this.getGender().equalsIgnoreCase("female")) {
             noOfFemaleProgrammers += 1;
         }
 
-        StaffManagement.employees.add(this); // this ??
+        StaffManagement.employees.add(this);
     }
 
     @Override
-    public void update() { // polymorphism ??
+    public void update() { // polymorphism 
         System.out.println("4. Code language?");
         System.out.println("0. Exit");
 
         switch (readInt()) {
-            case 1:
+            case 1 -> {
                 System.out.print("New name: ");
                 this.setName(sc.nextLine());
-                break;
-            case 2:
+            }
+            case 2 -> {
                 System.out.print("New gender: ");
                 this.setGender(sc.nextLine());
-                break;
-            case 3:
+            }
+            case 3 -> {
                 System.out.print("New salary: ");
                 this.setSalary(readDouble());
                 this.bonus();
-                break;
-            case 4:
+            }
+            case 4 -> {
                 System.out.print("New code language: ");
                 this.setCodeLang(sc.nextLine());
-                break;
-            case 0:
-                System.exit(0);
-                break;
-            default:
+            }
+            case 0 -> {
+                printAllEmployees();
+                employeeManagement();
+            }
+            default ->
                 System.out.println("Wrong input. Please try again.");
         }
     }

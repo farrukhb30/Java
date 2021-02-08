@@ -4,17 +4,15 @@
  */
 package polymorphism;
 
-import java.util.ArrayList; // remove ?
-import static polymorphism.Utilities.*;
+import static polymorphism.UI.runProgram;
 
 public class MainPoly {
 
 
     public static void main(String[] args) {
 
-        loadDB(); // remove ?
         while (true) {
-            UI.runProgram(); // import UI class ?
+            runProgram();
         }
     }
 

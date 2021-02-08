@@ -76,7 +76,7 @@ public class GraphicDesigner extends Employee implements StaffManagement{
             noOfFemaleGraphicDesigners += 1;
         }
 
-        StaffManagement.employees.add(this);
+        employees.add(this);
     }
 
     @Override
@@ -85,28 +85,25 @@ public class GraphicDesigner extends Employee implements StaffManagement{
         System.out.println("0. Exit");
 
         switch (readInt()) {
-           case 1:
-                System.out.print("New name: ");
-                this.setName(sc.nextLine());
-                break;
-            case 2:
+           case 1 -> {
+               System.out.print("New name: ");
+               this.setName(sc.nextLine());
+            }
+            case 2 -> {
                 System.out.print("New gender: ");
                 this.setGender(sc.nextLine());
-                break;
-            case 3:
+            }
+            case 3 -> {
                 System.out.print("New salary: ");
                 this.setSalary(readDouble());
                 this.bonus();
-                break;
-            case 4:
+            }
+            case 4 -> {
                 System.out.println("New tech stack: ");
                 this.setTechStack(sc.nextLine());
-                break;
-            case 0:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Wrong input. Please try again.");
+            }
+            case 0 -> System.exit(0);
+            default -> System.out.println("Wrong input. Please try again.");
         }
     }
 
