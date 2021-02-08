@@ -48,12 +48,14 @@ public class Methods {
                 return e;
             }
         }
-        return null; // or return System.out.println("Sorry, no employee with that ID was found.");
+        System.out.println("Sorry, no employee with that ID was found.");
+        return null;
+
     }
 
     public static void removeEmployeeByName() {
 
-        Employee e = new Employee(); // ??
+        Employee e = new Employee();
 
         printAllEmployees();
 
@@ -93,9 +95,6 @@ public class Methods {
 
     public static void genderDistribution() {
 
-        // what is printf ??
-        // what is %.2f ?? 
-        // Why multiply by 100 ??
         System.out.printf("Male employees percentage: %.2f\n", (double) ((Employee.getNoOfMaleEmployees() * 100) / employees.size()));
         System.out.printf("Female employees percentage : %.2f\n", (double) ((Employee.getNoOfFemaleEmployees() * 100) / employees.size()));
 
@@ -123,7 +122,7 @@ public class Methods {
             }
         }
 
-        // below ??
+        // För att hantera fler än en med samma lön
         double highest = employees.get(highestSalary).getSalary();
 
         if (highestSalary != 0) {
@@ -136,7 +135,6 @@ public class Methods {
             }
         }
 
-        //System.out.println(employees.get(highestSalary));
     }
 
     public static void findLowestPaidEmployee() {
@@ -173,11 +171,9 @@ public class Methods {
 
         }
 
-        // totalBonus visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the employees: " + df.format(totalBonus) + "\n");
     }
 
-    // Detta är arv. Inte polymorfism.
     public static void totalProgrammersBonusPayments() {
 
         double totalProgrammerBonus = 0;
@@ -189,7 +185,6 @@ public class Methods {
             }
 
         }
-        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Programmers: " + df.format(totalProgrammerBonus) + "\n");
     }
 
@@ -204,7 +199,6 @@ public class Methods {
             }
 
         }
-        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Graphic Designers: " + df.format(totalGraphicDesignerBonus) + "\n");
     }
 
@@ -219,7 +213,6 @@ public class Methods {
             }
 
         }
-        // visar för många decimaler. Borde klippas bort xxx.xx
         System.out.println("Total bonus for all the Test Specialists: " + df.format(totalTestSpecialistBonus) + "\n");
     }
 
@@ -228,9 +221,13 @@ public class Methods {
         printAllEmployees();
 
         System.out.println("\n\nPlease input employee number:");
-        System.out.println(getEmployeeById(readInt()));
+        int employeeID = readInt();
+        if (getEmployeeById(employeeID) == null) {
+
+        } else {
+            System.out.println(getEmployeeById(employeeID));
+        }
 
         System.out.println("");
     }
-
 }
