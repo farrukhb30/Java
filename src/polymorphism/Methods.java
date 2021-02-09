@@ -6,6 +6,8 @@ import static polymorphism.Utilities.*;
 
 public class Methods {
 
+    public static ArrayList<Employee> employees = new ArrayList<>();
+
     static Scanner sc = new Scanner(System.in);
 
     public static void updateEmployeeByID() {

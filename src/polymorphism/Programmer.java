@@ -87,7 +87,7 @@ public class Programmer extends Employee implements StaffManagement {
             noOfFemaleProgrammers += 1;
         }
 
-        StaffManagement.employees.add(this);
+        employees.add(this);
     }
 
     @Override

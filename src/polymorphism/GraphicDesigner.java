@@ -1,6 +1,7 @@
 package polymorphism;
 
 import static polymorphism.Methods.sc;
+import static polymorphism.Methods.employees;
 import static polymorphism.Utilities.*;
 
 public class GraphicDesigner extends Employee implements StaffManagement{
