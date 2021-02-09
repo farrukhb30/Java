@@ -96,15 +96,15 @@ public class Utilities {
         TestSpecialist t3 = new TestSpecialist(false, "Lara Karlsson", "female", 165000.8776554435);
 
         
-        StaffManagement.employees.add(p1);
-        StaffManagement.employees.add(p2);
-        StaffManagement.employees.add(g1);
-        StaffManagement.employees.add(g2);
-        StaffManagement.employees.add(t1);
-        StaffManagement.employees.add(t2);
-        StaffManagement.employees.add(t3);
+        employees.add(p1);
+        employees.add(p2);
+        employees.add(g1);
+        employees.add(g2);
+        employees.add(t1);
+        employees.add(t2);
+        employees.add(t3);
        
-        for (Employee employee : StaffManagement.employees) {
+        for (Employee employee : employees) {
             employee.bonus();
         }
 
